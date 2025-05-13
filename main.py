@@ -1,19 +1,16 @@
 from stats import get_word_count, get_character_count, get_sorted_count
 import sys
 
-def get_book_text(path_to_file):
-    with open(path_to_file, encoding='utf-8') as file:
+def get_book_text(path_to_book):
+    with open(path_to_book, encoding='utf-8') as file:
         file_contents = file.read()
     return file_contents
 
 def main():
-    path_to_file = path_to_book
-    book_text = get_book_text(path_to_file)
-
-    file_contents = get_book_text(path_to_file)
+    file_contents = get_book_text(path_to_book)
 
     print("============ BOOKBOT ============")
-    print(f"Analyzing words found at {path_to_file}...")
+    print(f"Analyzing words found at {path_to_book}...")
     print("----------- Word Count ----------")
     print(f"Found {get_word_count(file_contents)} total words")
     print("--------- Character Count -------")
@@ -24,6 +21,8 @@ def main():
     print("============= END ===============")
 
 if __name__ == "__main__": 
+    # Check if the script is run with the correct number of arguments
+    # If not, print usage message and exit
     if len(sys.argv) != 2:
         print("Usage: python3 main.py <path_to_book>")
         sys.exit(1)
